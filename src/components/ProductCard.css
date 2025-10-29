@@ -1,0 +1,113 @@
+/* ======== Base Mobile-First ======== */
+.product-card {
+  display: grid;
+  grid-template-columns: 1fr; /* Layout apilat per a mòbil */
+  max-width: 100%;
+  margin: 0;
+  border-radius: 0;
+  overflow: hidden;
+  background-color: white;
+}
+
+/* Modificador BEM per a producte esgotat */
+.product-card--sold-out {
+  filter: grayscale(100%);
+}
+
+/* Contingut d'informació */
+.product-info {
+  padding: 15px;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 15px;
+}
+
+/* Imatge del producte */
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Botó */
+.add-to-cart-btn {
+  align-self: end;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-card--sold-out .add-to-cart-btn,
+.add-to-cart-btn[disabled] {
+  background-color: #bbb;
+  color: #eee;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Secció de preus (Flexbox) */
+.product-price-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.price-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.discount-label {
+  flex-grow: 1;
+  text-align: right;
+  color: #fff;
+  background-color: #cc0000;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+/* Preus */
+.current-price {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #cc0000;
+}
+
+.old-price {
+  font-size: 1em;
+  color: #666;
+  text-decoration: line-through;
+}
+
+/* Text */
+.product-title {
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
+.product-description {
+  color: #444;
+}
+
+/* ======== Layout d’Escriptori ======== */
+@media (min-width: 601px) {
+  .product-card {
+    grid-template-columns: 250px 1fr;
+    max-width: 750px;
+    margin: 40px auto;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  .product-info {
+    padding: 20px;
+  }
+}
